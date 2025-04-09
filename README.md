@@ -19,7 +19,7 @@ Compress the `kbdate` man page.
 gzip $(find kbdate -type f -name kbdate.1)
 ```
 
-Build your debian package. Then, install.
+Build your Debian package. Then, install.
 ```
 dpkg -b kbdate
 sudo apt install ./kbdate.deb
