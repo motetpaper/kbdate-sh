@@ -8,6 +8,25 @@ Clone this repo.
 git clone https://github.com/motetpaper/kbdate-sh kbdate
 ```
 
+This is the structure of the repo when you clone it.
+```
+kbdate
+├── DEBIAN
+│   └── control
+├── LICENSE
+├── README.md
+└── usr
+    ├── local
+    │   └── bin
+    │       └── kbdate.sh
+    └── share
+        └── man
+            └── man1
+                └── kbdate.1
+
+```
+
+
 Find the `kbdate.sh`, rename it, then add executable permissions.
 ```bash
 fn=$(find kbdate -type f -name kbdate.sh)
@@ -19,6 +38,23 @@ sudo chmod +x $fx
 Compress the `kbdate` man page.
 ```
 gzip $(find kbdate -type f -name kbdate.1)
+```
+
+This is the structure of the repo at this point: Notice how the files change, but the structure stays the same.
+```
+kbdate
+├── DEBIAN
+│   └── control
+├── LICENSE
+├── README.md
+└── usr
+    ├── local
+    │   └── bin
+    │       └── kbdate
+    └── share
+        └── man
+            └── man1
+                └── kbdate.1.gz
 ```
 
 Build your Debian package. Then, install it.
