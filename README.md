@@ -1,6 +1,8 @@
 # kbdate-sh
 date-based knowledge base ID, implemented in bash
 
+## Using the GitHub repo for Debian package development of bash scripts
+
 Clone this repo.
 ```bash
 git clone https://github.com/motetpaper/kbdate-sh kbdate
