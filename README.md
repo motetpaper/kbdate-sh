@@ -4,7 +4,7 @@ date-based knowledge base ID, implemented in bash
 ## Using the GitHub repo for Debian package development of bash scripts
 
 Clone this repo.
-```bash
+```sh
 git clone https://github.com/motetpaper/kbdate-sh kbdate
 ```
 
@@ -28,7 +28,7 @@ kbdate
 
 
 Find the `kbdate.sh`, rename it, then add executable permissions.
-```bash
+```sh
 fn=$(find kbdate -type f -name kbdate.sh)
 fx=${fn%%.sh}
 mv $fn $fx
@@ -36,7 +36,7 @@ sudo chmod +x $fx
 ```
 
 Compress the `kbdate` man page.
-```
+```sh
 gzip $(find kbdate -type f -name kbdate.1)
 ```
 
@@ -58,12 +58,12 @@ kbdate
 ```
 
 Build your Debian package. Then, install it.
-```
+```sh
 dpkg -b kbdate
 sudo apt install ./kbdate.deb
 ```
 `kbdate` should run on your system.
-```bash
+```sh
 kbdate
 ```
 
