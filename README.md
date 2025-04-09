@@ -26,6 +26,7 @@ kbdate
 
 ```
 
+### Prepare files.
 
 Find the `kbdate.sh`, rename it, then add executable permissions.
 ```sh
@@ -40,7 +41,7 @@ Compress the `kbdate` man page.
 gzip $(find kbdate -type f -name kbdate.1)
 ```
 
-This is the structure of the repo at this point: Notice how the files change, but the structure stays the same.
+This is the structure of the repo at this point: 
 ```
 kbdate
 ├── DEBIAN
@@ -56,13 +57,18 @@ kbdate
             └── man1
                 └── kbdate.1.gz
 ```
+> **NOTE:** The files change, but the directory structure stays the same.
+
+### Build and Install
 
 Build your Debian package. Then, install it.
 ```sh
 dpkg -b kbdate
 sudo apt install ./kbdate.deb
 ```
+
 `kbdate` should run on your system.
+
 ```sh
 kbdate
 ```
