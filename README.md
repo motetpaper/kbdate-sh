@@ -5,7 +5,9 @@ date-based knowledge base ID, implemented in bash
 
 **GitHub is very useful for developing bash scripts.** You can use wokflows to automate repetitive tasks. Also, you can download and package source regularly to see how well installs look and feel on different Linux distributions.
 
-Right now, we look at Debian packages, which also be be installed on Ubuntu. We will briefly review the steps to install a bash script and its companion manpage on Linux using the Debian packaging system.
+Right now, we look at Debian packages, which can also be installed on Ubuntu Linux. 
+
+Let us briefly review the steps to install a bash script and its companion manpage on Linux using the Debian packaging system.
 
 ### Download the source files.
 
