@@ -68,9 +68,9 @@ dpkg -b kbdate
 
 ### Install the Debian package.
 
-You can directly install the `/deb` file without adding a PPA repository.
+You can directly install the `.deb` file using `apt` without adding a PPA repository or source item.
 
-Remember to use the glob syntax `./kbdate.deb` when you run the installation.
+🖐️ Remember to use the glob syntax `./kbdate.deb` when you run the installation.
 ```sh
 sudo apt install ./kbdate.deb
 ```
