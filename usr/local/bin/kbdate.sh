@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
+
 ##
 ## kbdate.sh
 ## job  : generates new knowledgebase identifier
 ## git  : https://github.com/motetpaper/kbdate-sh
 ## lic  : MIT
+## NOTE : KBYYMMmmmmm (kbdate)
 ##
 
 ## helps track tricky timezones
@@ -21,23 +23,23 @@ fi
 t1=$(date --date="@$indate" +"%s")
 
 ## date formats
-yyyy=$(date --date="@$indate" +"%Y")
-yy=$(date --date="@$indate" +"%y")
-mm=$(date --date="@$indate" +"%m")
+YYYY=$(date --date="@$indate" +"%Y")
+YY=$(date --date="@$indate" +"%y")
+MM=$(date --date="@$indate" +"%m")
 
 ## new month begins
-t0=$(date --date="$yyyy-$mm-01 00:00:00" +"%s")
+t0=$(date --date="$YYYY-$MM-01 00:00:00" +"%s")
 
 ## seconds between elapsed in month
-diff=$((t1-t0))
+diff=$((t1-t0)) # units of seconds
 
-## hours elapsed in month
-h=$((diff/3600))
+## minutes elapsed in month
+m=$((diff/60)) # units of minutes
 
-## three-digit leading zero
-hhh=$(printf "%03d" $h)
+## five-digit number of minutes
+mmmmm=$(printf "%05d" $m)
 
 ## final string
-kbdate="KB"$yy$mm$hhh
+kbdate="KB"$YY$MM$mmmmm
 
 echo $kbdate
