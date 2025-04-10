@@ -67,7 +67,7 @@ kbdate
 
 ### Build the Debian package.
 
-Check the information in the control file. Then, build the package.
+Check the information in the [control file][deb_control]. Then, build the package.
 ```sh
 dpkg -b kbdate
 ```
@@ -91,3 +91,6 @@ The man page should also be available:
 ```bash
 man kbdate
 ```
+
+[deb_control]: https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control
+
