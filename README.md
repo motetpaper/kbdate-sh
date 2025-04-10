@@ -59,11 +59,19 @@ kbdate
 ```
 > **NOTE:** The files change, but the directory structure stays the same.
 
-### Build and Install
+### Build the Debian package.
 
-Build your Debian package. Then, install it.
+Check the information in the control file. Then, build the package.
 ```sh
 dpkg -b kbdate
+```
+
+### Install the Debian package.
+
+You can directly install the `/deb` file without adding a PPA repository.
+
+Remember to use the glob syntax `./kbdate.deb` when you run the installation.
+```sh
 sudo apt install ./kbdate.deb
 ```
 
