@@ -3,14 +3,9 @@ date-based knowledge base ID, implemented in bash
 
 ## Using the GitHub repo for Debian package development of bash scripts
 
-GitHub is very useful for developping bash scripts. 
+GitHub is very useful for developing bash scripts. You can use wokflows to automate repetitive tasks. Also, you can download and package source regularly to see how well installs look and feel on different Linux distributions.
 
-You can use wokflows to automated repetitive tasks. Also, you can download and package source
-regularly to see how well installs look and feel on different Linux distributions.
-
-Right now, we look at Debian packages, which also be be installed on Ubuntu.
-
-We will briefly review the steps to install bash script and its companion manpage.
+Right now, we look at Debian packages, which also be be installed on Ubuntu. We will briefly review the steps to install a bash script and its companion manpage.
 
 ### Download the source files.
 
