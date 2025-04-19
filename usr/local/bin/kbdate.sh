@@ -11,12 +11,16 @@
 ## helps track tricky timezones
 TZ=$(timedatectl | grep "zone" | cut -f 2 -d ':'  | cut -f 1 -d '(' | tr -d [:space:])
 
+## this is a reminder that the expected
+## value is an integer, not a formatted date
 indate=0
 
 if [[ -z $1 ]]; then
   indate=$(date +"%s")
 else
-  indate=$(date --date="$1" +"%s")
+  ## if the user input date is invalid,
+  ## then, then the fallback date is the default date
+  indate=$(date --date="$1" +"%s" || date +"%s")
 fi
 
 ## now
@@ -37,6 +41,7 @@ diff=$((t1-t0)) # units of seconds
 m=$((diff/60)) # units of minutes
 
 ## five-digit number of minutes
+## expecting values between 00000 and 44639
 mmmmm=$(printf "%05d" $m)
 
 ## final string
