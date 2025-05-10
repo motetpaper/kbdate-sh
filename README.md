@@ -93,12 +93,6 @@ kbdate-sh
 
 We want to focus on the `kbdate` directory for your Debian package.
 
-From the repo root directory, change directory to the `kbdate` folder:
-
-```bash
-cd kbdate
-```
-
 This is the structure of the `kbdate` folder contents that will be packed into your Debian package.
 ```
 kbdate
@@ -113,6 +107,9 @@ kbdate
             └── man1
                 └── kbdate.1
 ```
+
+>[!IMPORTANT]
+>We will do all the work from the repo root. ***Do not change directory to the new `kbdate` folder.***
 
 Before building the Debian, we need to make changes to the files within this structure.
 
@@ -173,7 +170,7 @@ kbdate
             └── man1
                 └── kbdate.1.gz
 ```
-> **NOTE:** Two files have changed; however, the directory structure stays the same.
+> **NOTE:** Two files have changed; however, the directory structure stays the same. Also, please note that we made the file changes from the repo root.
 
 Now, it is time to build your Debian package.
 
@@ -188,6 +185,23 @@ Return to root folder of the repo. Then, build the package.
 ```sh
 dpkg -b kbdate
 ```
+
+This creates the Debian package called `kbdate.deb` in the root directory.
+
+In the `.gitignore` file in the repo, you will notice the line `**.deb` to prevent unintentional commits of packages.
+
+You can double check to make sure your Debian package has been excluded by checking the working tree status:
+
+```
+git status
+````
+
+
+>Optionally (or, perhaps recommaneded if you are sharing this package with others), you can give your Debian package a version.
+
+>```sh
+>dpkg -b kbdate kbdate-v0.0.1.deb
+>```
 
 ## Install the Debian package.
 
@@ -215,5 +229,7 @@ You can also check which files are part of your Debian package.
 ```bash
 dpkg -L kbdate
 ```
+
+
 
 [deb_control]: https://www.debian.org/doc/manuals/maint-guide/dreq.en.html#control
