@@ -1,0 +1,6 @@
+Package: kbdate
+Version: 0.2.3
+Maintainer: MOTETPAPER
+Architecture: all
+Description: Generates a date-based knowledge base identifier
+Homepage: https://github.com/motetpaper/kbdate-sh

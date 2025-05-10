@@ -1,0 +1,71 @@
+# make a Debian package using GitHub repo contents 
+
+name: kbdate-mkdeb
+
+on: 
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*.*.*"
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+        - name: checkout
+          uses: actions/checkout@v4
+                      
+        - name: build the Debian package
+          run: |
+            ## pre-flight env and tree check
+            tree
+            env
+
+            ## make a new folder called kbdate
+            cp -r src kbdate
+
+            ## check the tree
+            tree
+
+            ## make kbdate executable with no file extension
+            fn=$(find kbdate -type f -name kbdate.sh)
+            fx=${fn%%.sh}
+            mv $fn $fx
+            sudo chmod +x $fx
+
+            #@ then, compress the kbdate man page
+            gzip $(find kbdate -type f -name kbdate.1)
+
+            ## one more tree check
+            tree
+            pwd
+
+            echo "ready to build ... "
+
+            ## build the debian package
+            dpkg -b kbdate ./kbdate-${{ github.ref_name }}.deb
+
+            ## test install the debian package
+            sudo apt install ./kbdate-${{ github.ref_name }}.deb
+            
+            kbdate
+
+            foo=$(man kbdate)
+            echo $foo
+
+        - name: release
+          uses: softprops/action-gh-release@v2
+          if: github.ref_type == 'tag'
+          with:
+            files: kbdate-${{ github.ref_name }}.deb
+            draft: true
+            body: |
+              # What's New in ${{ github.ref_name }}
+              
+              This is a release draft.
+                + Item 1.
+                + Item 2.
